@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
+import TestComponent from "@/components/TestComponent.vue";
+import CalcComponent from "@/components/CalcComponent.vue";
 </script>
 
 <template>
@@ -18,6 +20,9 @@ import HelloWorld from './components/HelloWorld.vue'
   </header>
 
   <RouterView />
+
+  <TestComponent/>
+  <CalcComponent/>
 </template>
 
 <style scoped>
