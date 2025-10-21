@@ -1,8 +1,12 @@
 <script lang="ts">
 import {defineComponent} from 'vue'
+import NewComponent from './NewComponent.vue'
 
 export default defineComponent({
   name: "TestComponent",
+  components: {
+    NewComponent
+  },
   data() {
     return {
       cislo: 1,
@@ -42,6 +46,7 @@ export default defineComponent({
     <p :class="getColor">{{ getMyName }}</p>
     <button @click="increment">Pridaj</button>
     <button @click="decrement">Uber</button>
+    <p v-if="cislo < 5"><NewComponent/></p>
   </div>
 </template>
 
