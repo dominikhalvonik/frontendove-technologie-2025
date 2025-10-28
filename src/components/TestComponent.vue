@@ -11,7 +11,9 @@ export default defineComponent({
     return {
       cislo: 1,
       meno: "Dominik",
-      priezvisko: "Martikan"
+      priezvisko: "Martikan",
+      parentMessage: "Toto je sprava od nadradeneho komponentu",
+      childMessage: 'Nic'
     }
   },
   methods: {
@@ -20,6 +22,9 @@ export default defineComponent({
     },
     decrement() {
       this.cislo--
+    },
+    handleChildEvent(message: any) {
+      this.childMessage = message;
     }
   },
   computed: {
@@ -39,6 +44,8 @@ export default defineComponent({
 
 <template>
   <div>
+    <p v-if="cislo < 5"><NewComponent :parentMessage="parentMessage" @childEvent="handleChildEvent"/></p>
+    <p>Správa od podriadeneho komponentu: {{ childMessage }}</p>
     <p>Ahoj toto je moj prvy komponent</p>
     <p>{{ meno }} {{ priezvisko }}</p>
     <p>{{ cislo }}</p>
@@ -46,7 +53,6 @@ export default defineComponent({
     <p :class="getColor">{{ getMyName }}</p>
     <button @click="increment">Pridaj</button>
     <button @click="decrement">Uber</button>
-    <p v-if="cislo < 5"><NewComponent/></p>
   </div>
 </template>
 

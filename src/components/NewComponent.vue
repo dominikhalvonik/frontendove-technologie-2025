@@ -29,6 +29,12 @@ export default defineComponent({
       ]
     }
   },
+  props: {
+    parentMessage: {
+      type: String,
+      required: true
+    }
+  },
   methods: {
     toggle() {
       this.somTu = !this.somTu
@@ -44,6 +50,9 @@ export default defineComponent({
     },
     removePerson() {
       this.zoznamLudi.pop()
+    },
+    sendMessageToParent() {
+      this.$emit('childEvent', 'HAHAHAHAHAHA')
     }
   },
   beforeCreate() {
@@ -75,6 +84,7 @@ export default defineComponent({
 
 <template>
   <div>
+    <p>{{ parentMessage }}</p>
     <button @click="toggle">Toggle</button>
     <p v-if="somTu">Ahoj som tu, lebo premenna somTu je true</p>
     <p v-else>Ahoj niesom tu, lebo premenna somTu je false</p>
@@ -94,6 +104,7 @@ export default defineComponent({
         Vek: {{ item.vek }}
       </li>
     </ul>
+    <button @click="sendMessageToParent">Pošli správu rodičovi</button>
   </div>
 </template>
 
