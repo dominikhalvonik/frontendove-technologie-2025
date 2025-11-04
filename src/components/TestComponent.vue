@@ -9,11 +9,19 @@ export default defineComponent({
   },
   data() {
     return {
+      celkovaCenaKosika: 0,
       cislo: 1,
       meno: "Dominik",
       priezvisko: "Martikan",
       parentMessage: "Toto je sprava od nadradeneho komponentu",
       childMessage: 'Nic'
+    }
+  },
+  watch: {
+    celkovaCenaKosika(newVal, oldVal) {
+      if(newVal > 10) {
+        alert("Ziskavas zlavu 5% na tento nakup!!!");
+      }
     }
   },
   methods: {
@@ -22,6 +30,9 @@ export default defineComponent({
     },
     decrement() {
       this.cislo--
+    },
+    pridajDoKOsika() {
+      this.celkovaCenaKosika += 2;
     },
     handleChildEvent(message: any) {
       this.childMessage = message;
@@ -53,6 +64,7 @@ export default defineComponent({
     <p :class="getColor">{{ getMyName }}</p>
     <button @click="increment">Pridaj</button>
     <button @click="decrement">Uber</button>
+    <button @click="pridajDoKOsika">Pridaj do kosika</button>
   </div>
 </template>
 
