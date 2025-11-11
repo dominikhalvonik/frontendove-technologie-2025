@@ -55,6 +55,7 @@ export default defineComponent({
 
 <template>
   <div>
+    {{ this.$route.params.username }}
     <p v-if="cislo < 5"><NewComponent :parentMessage="parentMessage" @childEvent="handleChildEvent"/></p>
     <p>Správa od podriadeneho komponentu: {{ childMessage }}</p>
     <p>Ahoj toto je moj prvy komponent</p>

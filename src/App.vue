@@ -16,6 +16,13 @@ import HelloWorld from './components/HelloWorld.vue'
         <RouterLink to="/test">Test</RouterLink>
         <RouterLink to="/calc">Kalkulacka</RouterLink>
       </nav>
+
+      <nav>
+      <router-link v-for="id in [1,2,3]" :key="id"
+                   :to="{ name: 'index',params: { id: id } }">
+        <h2>{{id}}</h2>
+      </router-link>
+      </nav>
     </div>
   </header>
 

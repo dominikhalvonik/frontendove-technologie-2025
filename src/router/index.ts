@@ -1,6 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import CalcComponent from "@/components/CalcComponent.vue";
+import IndexView from "@/views/IndexView.vue";
+import ChildrenView from "@/views/ChildrenView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -19,7 +21,7 @@ const router = createRouter({
       component: () => import('../views/AboutView.vue'),
     },
     {
-      path: '/test',
+      path: '/test/:username?',
       name: 'test',
       component: () => import('../components/TestComponent.vue'),
     },
@@ -27,7 +29,21 @@ const router = createRouter({
       path: '/calc',
       name: 'calc',
       component: CalcComponent,
-    }
+    },
+    {
+      path: '/index/:id',
+      name: 'index',
+      component: IndexView,
+      props: true,
+      children: [
+        {
+          path: '/index/:id/info',
+          name: 'infoChildren',
+          component: ChildrenView,
+          props: true,
+        }
+      ]
+    },
   ],
 })
 
