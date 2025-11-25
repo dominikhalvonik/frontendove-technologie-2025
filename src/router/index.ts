@@ -3,6 +3,7 @@ import HomeView from '../views/HomeView.vue'
 import CalcComponent from "@/components/CalcComponent.vue";
 import IndexView from "@/views/IndexView.vue";
 import ChildrenView from "@/views/ChildrenView.vue";
+import CounterView from "@/views/CounterView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -29,6 +30,11 @@ const router = createRouter({
       path: '/calc',
       name: 'calc',
       component: CalcComponent,
+    },
+    {
+      path: '/counter',
+      name: 'counter',
+      component: CounterView
     },
     {
       path: '/index/:id',
