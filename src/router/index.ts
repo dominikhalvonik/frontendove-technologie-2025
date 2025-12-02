@@ -4,6 +4,7 @@ import CalcComponent from "@/components/CalcComponent.vue";
 import IndexView from "@/views/IndexView.vue";
 import ChildrenView from "@/views/ChildrenView.vue";
 import CounterView from "@/views/CounterView.vue";
+import TodoView from '@/views/TodoView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -35,6 +36,11 @@ const router = createRouter({
       path: '/counter',
       name: 'counter',
       component: CounterView
+    },
+    {
+      path: '/todo',
+      name: 'todo',
+      component: TodoView
     },
     {
       path: '/index/:id',
